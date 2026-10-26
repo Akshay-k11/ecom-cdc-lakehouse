@@ -2,3 +2,4 @@
 _notes/
 __pycache__/
 .pytest_cache/
+.databricks/
