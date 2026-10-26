@@ -27,5 +27,5 @@ def test_load_tables_without_tables_key_raises(tmp_path):
 def test_real_sources_file_has_all_nine_tables():
     tables = config.load_tables(str(REPO_ROOT / "conf" / "sources.yml"))
 
-    assert len(tables) == 9
+    assert len(tables) == 10
     assert all(name.endswith(".csv") for name in tables.values())
