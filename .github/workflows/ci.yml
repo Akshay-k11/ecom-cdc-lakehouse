@@ -22,3 +22,21 @@ jobs:
 
       - name: Run unit tests
         run: pytest -v
+  
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Install Databricks CLI
+        uses: databricks/setup-cli@main
+
+      - name: Validate bundle (dev)
+        run: databricks bundle validate -t dev
+
+      - name: Validate bundle (prod)
+        run: databricks bundle validate -t prod
