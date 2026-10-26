@@ -1,0 +1,27 @@
+# Databricks Asset Bundle: describes the jobs this project deploys.
+bundle:
+  name: ecom_cdc_lakehouse
+
+variables:
+  catalog:
+    description: Unity Catalog catalog the pipeline reads from and writes to.
+    default: ecom_dev
+
+target:
+  dev:
+    mode: development
+    default: true
+
+resources:
+  jobs:
+    bronze_load:
+      name: bronze_load
+      tasks:
+        - task_key: load_bronze
+          notebook_task:
+            notebook_path: notebooks/01_bronze_load.ipynb
+            base_parameters:
+              catalog: ${var.catalog}
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
