@@ -7,7 +7,7 @@ variables:
     description: Unity Catalog catalog the pipeline reads from and writes to.
     default: ecom_dev
 
-target:
+targets:
   dev:
     mode: development
     default: true
