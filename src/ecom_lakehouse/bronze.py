@@ -1,10 +1,12 @@
 """Load raw Olist CSV files into bronze Delta tables."""
 
 import logging
+
 from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql import functions as F
 
 logger = logging.getLogger(__name__)
+
 
 def read_csv(spark: SparkSession, path: str) -> DataFrame:
     """Read a raw CSV file, keeping every column as a string."""
