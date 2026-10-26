@@ -36,4 +36,3 @@ def test_load_all_continues_after_failure_then_raises(monkeypatch):
         bronze.load_all(None, "/vol/olist", "ecom_test", tables)
 
     assert loaded == ["ecom_test.bronze.orders", "ecom_test.bronze.sellers"]
-    
