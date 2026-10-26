@@ -1,2 +1,4 @@
 # Private learning notes (never pushed to GitHub)
 _notes/
+__pycache__/
+.pytest_cache/
